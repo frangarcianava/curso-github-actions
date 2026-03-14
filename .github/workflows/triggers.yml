@@ -1,0 +1,12 @@
+name: Triggers
+run-name: ¡Estoy aprendiendo a usar diferentes triggers!
+on:
+  workflow_dispatch: 
+
+jobs:
+  ejemplo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje
+        run: echo "Este workflow se ejecutó por un trigger"
