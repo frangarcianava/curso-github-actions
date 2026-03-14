@@ -1,8 +1,8 @@
 name: Paso 5, Aprende a usar las Variables de Entorno
 
 # This step triggers after TBD-step-5-event-desc
-# This step sets STEP to X
-# This step closes <details id=5> and opens <details id=X>
+# This step sets STEP to 6
+# This step closes <details id=5> and opens <details id=6>
 
 # This will run every time we TBD-step-5-event-desc
 # Reference https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
@@ -63,12 +63,12 @@ jobs:
           FILE: ".github/workflows/variables.yml"
           SEARCH: "name:"
 
-      # Update README to close <details id=5> and open <details id=X>
-      # and set STEP to 'X'
-      - name: Actualizar a paso X
+      # Update README to close <details id=5> and open <details id=6>
+      # and set STEP to '6'
+      - name: Actualizar a paso final
         uses: skills/action-update-step@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 5
-          to_step: X
+          to_step: 6
           branch_name: aprendiendo-github-actions
