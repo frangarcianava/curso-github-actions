@@ -9,25 +9,37 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MENSAJE: "Aprendiendo GitHub Actions"
+      MENSAJE: Aprendiendo GitHub Actions
 
     steps:
       - name: Mostrar usuario
         run: |
-          echo "Usuario que ejecutó el workflow: ${{ github.actor }}"
+          echo 'Usuario que ejecutó el workflow: ${{ github.actor }}'
 
       - name: Mostrar repositorio
         run: |
-          echo "Repositorio: ${{ github.repository }}"
+          echo 'Repositorio: ${{ github.repository }}'
 
       - name: Mostrar evento
         run: |
-          echo "Evento que activó el workflow: ${{ github.event_name }}"
+          echo 'Evento que activó el workflow: ${{ github.event_name }}'
 
       - name: Mostrar rama
         run: |
-          echo "Rama actual: ${{ github.ref }}"
+          echo 'Rama actual: ${{ github.ref }}'
 
       - name: Mostrar sistema operativo del runner
         run: |
-          echo "Sistema
+          echo 'Sistema operativo del runner: ${{ runner.os }}'
+
+      - name: Mostrar arquitectura del runner
+        run: |
+          echo 'Arquitectura del runner: ${{ runner.arch }}'
+
+      - name: Mostrar variable de entorno
+        run: |
+          echo 'Mensaje de entorno: ${{ env.MENSAJE }}'
+
+      - name: Mostrar nombre del job
+        run: |
+          echo 'Nombre del job actual: ${{ github.job }}'
