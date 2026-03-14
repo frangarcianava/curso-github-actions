@@ -1,0 +1,22 @@
+name: Triggers
+run-name: ¡Estoy aprendiendo a usar diferentes triggers!
+on:
+  push:
+    branches:
+      - main
+      - aprendiendo-github-actions
+
+  pull_request:
+    branches:
+      - main
+
+  schedule:
+    - cron: "0 12 * * *"
+
+jobs:
+  ejemplo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje
+        run: echo "Este workflow se ejecutó por un trigger"
