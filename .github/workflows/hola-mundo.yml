@@ -22,6 +22,6 @@ jobs:
       - name: Ejecutar programa
         run: |
           dotnet new console -n HolaApp
-          mv hola_mundo.cs HolaApp/Program.cs
+          mv hola-mundo.cs HolaApp/Program.cs
           cd HolaApp
           dotnet run
