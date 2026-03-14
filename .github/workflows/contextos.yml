@@ -1,0 +1,33 @@
+name: Contextos
+run-name: Probando contextos en GitHub Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  mostrar-contextos:
+    runs-on: ubuntu-latest
+
+    env:
+      MENSAJE: "Aprendiendo GitHub Actions"
+
+    steps:
+      - name: Mostrar usuario
+        run: |
+          echo "Usuario que ejecutó el workflow: ${{ github.actor }}"
+
+      - name: Mostrar repositorio
+        run: |
+          echo "Repositorio: ${{ github.repository }}"
+
+      - name: Mostrar evento
+        run: |
+          echo "Evento que activó el workflow: ${{ github.event_name }}"
+
+      - name: Mostrar rama
+        run: |
+          echo "Rama actual: ${{ github.ref }}"
+
+      - name: Mostrar sistema operativo del runner
+        run: |
+          echo "Sistema
