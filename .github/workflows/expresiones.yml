@@ -1,0 +1,37 @@
+name: Expressions
+run-name: ¡Estoy aprendiendo a usar diferentes expresiones!
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  ejemplo:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Mostrar mensaje
+        run: echo "La idea es probar las expressions"
+
+      - name: Mostrar usuario
+        run: echo "Usuario ${{ github.actor }}"
+
+      - name: Solo si es push
+        if: ${{ github.event_name == 'push' }}
+        run: echo "Este paso solo corre en push"
+
+      - name: Si es push o pull request
+        if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+        run: echo "Evento válido"
+
+      - name: Si la rama empieza con main
+        if: ${{ startsWith(github.ref, 'refs/heads/main') }}
+        run: echo "Estamos en la rama main"
+
+      - name: Verificar usuario admin
+        if: ${{ contains(github.actor, 'admin') }}
+        run: echo "El usuario contiene admin"
+
