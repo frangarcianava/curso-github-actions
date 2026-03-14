@@ -1,3 +1,10 @@
 using System;
 
-Console.WriteLine("Hola, Mundo!");
+class Program
+{
+    static void Main()
+    {
+        string nombre = Environment.GetEnvironmentVariable("USERNAME");
+        Console.WriteLine($"¡Hola, {nombre} desde GitHub!");
+    }
+}
