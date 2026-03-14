@@ -1,0 +1,22 @@
+name: Variables
+run-name: Probando variables del repositorio
+
+on:
+  push:
+
+jobs:
+  mostrar-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar nombre
+        run: |
+          echo "Nombre: ${{ vars.NOMBRE }}"
+
+      - name: Mostrar profesión
+        run: |
+          echo "Profesión: ${{ vars.PROFESION }}"
+
+      - name: Mostrar mensaje completo
+        run: |
+          echo "${{ vars.NOMBRE }} trabaja como ${{ vars.PROFESION }}"
