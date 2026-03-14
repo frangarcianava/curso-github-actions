@@ -1,37 +1,29 @@
-name: Expressions
-run-name: ¡Estoy aprendiendo a usar diferentes expresiones!
-
+name: Expresiones
+run-name: ¡Estoy aprendiendo a usar Expresiones!
 on:
-  push:
-  pull_request:
-  schedule:
-    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      edad:
+        description: 'Edad'
+        required: true
+        type: string
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: 'Juan'
+        type: string
 
 jobs:
-  ejemplo:
+  mayor:
+    if: ${{ fromJSON(inputs.edad) >= 18 }}
     runs-on: ubuntu-latest
-
     steps:
+      - name: Correr script
+        run: echo "${{ inputs.nombre }} es mayor de edad"
 
-      - name: Mostrar mensaje
-        run: echo "La idea es probar las expressions"
-
-      - name: Mostrar usuario
-        run: echo "Usuario ${{ github.actor }}"
-
-      - name: Solo si es push
-        if: ${{ github.event_name == 'push' }}
-        run: echo "Este paso solo corre en push"
-
-      - name: Si es push o pull request
-        if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
-        run: echo "Evento válido"
-
-      - name: Si la rama empieza con main
-        if: ${{ startsWith(github.ref, 'refs/heads/main') }}
-        run: echo "Estamos en la rama main"
-
-      - name: Verificar usuario admin
-        if: ${{ contains(github.actor, 'admin') }}
-        run: echo "El usuario contiene admin"
-
+  menor:
+    if: ${{ fromJSON(inputs.edad) < 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Correr script
+        run: echo "${{ inputs.nombre }} es menor de edad"
